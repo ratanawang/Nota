@@ -125,3 +125,5 @@ dmypy.json
 
 # PyCharm ignore
 .idea/workspace.xml
+.idea/misc.xml
+.idea/Nota.iml
