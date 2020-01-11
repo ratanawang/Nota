@@ -1,7 +1,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Wgesh
+Copyright (c) 2020 George Zhang, Joyce Zhang, Ratana Wang, Wesley Chow
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
