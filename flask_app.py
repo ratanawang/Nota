@@ -54,15 +54,26 @@ input_email = input("(sign in) enter email: ")
 input_password = input("(sign in) enter password: ")
 
 # check user, password and print sample text
-user = auth.get_user_by_email(input_email)
-
-print(user.uid)
-doc_ref = db.collection(u'users').document(user.uid)
 try:
-    doc = doc_ref.get()
-    print(u'Document data: {}'.format(doc.to_dict()))
+    user = auth.get_user_by_email(input_email)
 except Exception:
-    print(u'No such document!')
+    print("error with inputted email")
+
+# get document, convert to dict and get password
+doc_ref = db.collection(u'users').document(user.uid).get()
+doc = doc_ref.to_dict()
+get_password = doc["password"]
+
+if input_password == get_password:
+    print(user.uid)
+    doc_ref = db.collection(u'users').document(user.uid)
+    try:
+        doc = doc_ref.get()
+        print(u'Document data: {}'.format(doc.to_dict()))
+    except Exception:
+        print(u'No document found')
+else:
+    print('wrong password')
 
 app = Flask(__name__)
 
