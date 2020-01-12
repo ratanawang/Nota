@@ -113,5 +113,15 @@ def send_scss(path):
     return send_from_directory('scss', path)
 
 
+# @app.route('/login', methods=['POST'])
+# def submit():
+#     form = ReusableForm(request.form)
+#     if request.method == 'POST':
+#         input_email1 = request.form['email']
+#         input_password1 = request.form['password']
+#         print (input_email1, " ", input_password1)
+#         flash('Thanks for registration')
+
+
 if __name__ == "main":
     app.run(debug=True)
