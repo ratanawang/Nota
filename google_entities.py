@@ -34,7 +34,7 @@ def sample_analyze_entities(text_content):
             print(u"Entity type: {}".format(enums.Entity.Type(entity.type).name))
             if enums.Entity.Type(entity.type).name == "DATE":
                 with open("notes.txt", "a") as file:
-                    file.write("{}\n".format(entity.name))
+                    file.write("- {}\n".format(entity.name))
             print(u"Salience score: {}".format(entity.salience))
             for metadata_name, metadata_value in entity.metadata.items():
                 print(u"{}: {}".format(metadata_name, metadata_value))
@@ -61,7 +61,7 @@ def sample_analyze_entities(text_content):
                         print("---has a salience score of: {}".format(ent))
                         if ent > 0:
                             with open("notes.txt", "a") as file:
-                                file.write("{}\n".format(key))
+                                file.write("- {}\n".format(key))
                         del temp[key]
                         break
             else:
