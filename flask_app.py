@@ -47,5 +47,30 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/css/<path>')
+def send_style(path):
+    return send_from_directory('css', path)
+
+
+@app.route('/fonts/<path>')
+def send_fonts(path):
+    return send_from_directory('fonts', path)
+
+
+@app.route('/img/<path>')
+def send_img(path):
+    return send_from_directory('img', path)
+
+
+@app.route('/js/<path>')
+def send_js(path):
+    return send_from_directory('js', path)
+
+
+@app.route('/scss/<path>')
+def send_scss(path):
+    return send_from_directory('scss', path)
+
+
 if __name__ == "main":
     app.run(debug=True)
