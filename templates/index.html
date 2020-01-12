@@ -61,18 +61,21 @@
 									<div class="row">
 									  <div class="col-sm">
 										<textarea id="texta" placeholder="Enter your notes..." id="text" name="text" rows="4"></textarea> 
+									  <form>
+										<input type="text" id="texta" placeholder="Enter your notes..." id="text" name="text" rows="4"></textarea> 
+										</form>
 									  </div>
 									  <div id="cen" class="col-sm">
-										<input id="buttonGen" type="submit" value="Generate">
+										<input type="submit" id="buttonGen" class="btn btn-danger" type="submit" value="Generate">
 										<br>
 										<br>
-										<button id="buttonGen2" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-													  end me now
+										<button type="submit" id="buttonGen2" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+													  Generate Options
 										</button>
 													<div  class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-													  <a class="dropdown-item" href="#">i want to end this</a><br>
-													  <a class="dropdown-item" href="#">Another action</a><br>
-													  <a class="dropdown-item" href="#">I hate this</a><br>
+													  <a class="dropdown-item" href="#">Suggested Option</a><br>
+													  <a class="dropdown-item" href="#">Alternative Option I</a><br>
+													  <a class="dropdown-item" href="#">Alternative Option II</a><br>
 										</div>
 									  </div>
 									  <div class="col-sm">
@@ -90,7 +93,69 @@
         <!--================Work Area =================-->
         <section class="work_area p_120">
         	<div class="container">
-        		
+        		<section class="work_area p_120">
+        	<div class="container">
+				<style>
+					div.ex3 {
+					  overflow: auto;
+					}			
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+				</style>
+				<div class="ex3">
+					  <div class="row">
+						  <div class="column">
+							<div class="card">
+							<br><b>Title: Notes 1</b><br>
+							<p>BODY 
+							</p></div>
+
+
+						
+						</div> 
+				</div>
+        	</div>
+        </section>
         	</div>
         </section>
         <!--================End Work Area =================-->
