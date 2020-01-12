@@ -7,7 +7,7 @@ from google.cloud.language import types
 client = language.LanguageServiceClient()
 
 # The text to analyze
-text = u'Hello, world!'
+text = u'{}'.format(input("Input text: "))
 document = types.Document(
     content=text,
     type=enums.Document.Type.PLAIN_TEXT)
