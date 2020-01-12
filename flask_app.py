@@ -3,6 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 from firebase_admin import auth
+from firebase_admin import storage
 
 # Initialize app with environment variable
 default_app = firebase_admin.initialize_app()
@@ -20,17 +21,17 @@ auth = firebase_admin.auth
 # })
 
 # Test creating user
-email = input("(create acc) enter email: ")
-password = input("(create acc) enter password: ")
-sample_data = input("enter some sample data: ")
-
-user = auth.create_user(email=email, password=password, disabled=False)
-email = ""
-password = ""
-sample_data = ""
-
-input_email = input("(sign in) enter email: ")
-input_password = input("(sign in) enter password: ")
+# email = input("(create acc) enter email: ")
+# password = input("(create acc) enter password: ")
+# sample_data = input("enter some sample data: ")
+#
+# user = auth.create_user(email=email, password=password, disabled=False)
+# email = ""
+# password = ""
+# sample_data = ""
+#
+# input_email = input("(sign in) enter email: ")
+# input_password = input("(sign in) enter password: ")
 
 # user = auth.get_user_by_email(input_email)
 
