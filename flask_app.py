@@ -140,7 +140,7 @@ def submit():
             if input_password == get_password:
                 print('Signed in')
                 user_logged_in = True
-                return redirect('/')
+                return redirect('index2.html')
             else:
                 print('wrong password')
                 return render_template('login.html')
@@ -182,7 +182,7 @@ def submit():
 
             if input_password == get_password:
                 user_logged_in = True
-                return redirect('/')
+                return redirect('index2.html')
             else:
                 print('wrong password')
                 return render_template('login.html')
