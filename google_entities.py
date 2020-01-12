@@ -1,75 +1,71 @@
 from google.cloud import language_v1
 from google.cloud.language_v1 import enums
+import re
+
+notes = ""  # the string saved to the text file, used by front end
 
 
 def sample_analyze_entities(text_content):
-    """
-    Analyzing Entities in a String
-
-    Args:
-      text_content The text content to analyze
-    """
+    text_content = re.split('[?.!]', text_content)
+    text_content.pop(len(text_content)-1)
 
     client = language_v1.LanguageServiceClient()
 
-    # text_content = 'California is a state.'
-
-    # Available types: PLAIN_TEXT, HTML
     type_ = enums.Document.Type.PLAIN_TEXT
 
-    # Optional. If not specified, the language is automatically detected.
-    # For list of supported languages:
-    # https://cloud.google.com/natural-language/docs/languages
     language = "en"
-    document = {"content": text_content, "type": type_, "language": language}
 
-    # Available values: NONE, UTF8, UTF16, UTF32
-    encoding_type = enums.EncodingType.UTF8
+    with open("notes.txt", "w") as file:
+        file.write(str(notes))
 
-    response = client.analyze_entities(document, encoding_type=encoding_type)
-    # Loop through entities returned from the API
-    for entity in response.entities:
-        print(u"Representative name for the entity: {}".format(entity.name))
-        # Get entity type, e.g. PERSON, LOCATION, ADDRESS, NUMBER, et al
-        print(u"Entity type: {}".format(enums.Entity.Type(entity.type).name))
-        # Get the salience score associated with the entity in the [0, 1.0] range
-        print(u"Salience score: {}".format(entity.salience))
-        # Loop over the metadata associated with entity. For many known entities,
-        # the metadata is a Wikipedia URL (wikipedia_url) and Knowledge Graph MID (mid).
-        # Some entity types may have additional metadata, e.g. ADDRESS entities
-        # may have metadata for the address street_name, postal_code, et al.
-        for metadata_name, metadata_value in entity.metadata.items():
-            print(u"{}: {}".format(metadata_name, metadata_value))
+    for text in text_content:
 
-        # Loop over the mentions of this entity in the input document.
-        # The API currently supports proper noun mentions.
-        for mention in entity.mentions:
-            print(u"Mention text: {}".format(mention.text.content))
-            # Get the mention type, e.g. PROPER for proper noun
-            print(
-                u"Mention type: {}".format(enums.EntityMention.Type(mention.type).name)
-            )
+        with open("notes.txt", "a") as file:
+            file.write("---------------\n")
 
-    # Get the language of the text, which will be the same as
-    # the language specified in the request or, if not specified,
-    # the automatically-detected language.
-    print(u"Language of the text: {}".format(response.language))
+        document = {"content": text, "type": type_, "language": language}
 
-    temp = {}
-    for entity in response.entities:
-        temp[entity.mentions[0].text.content] = entity.salience
-    print("Analysis begins below.....")
-    while True:
-        if len(temp) > 0:
-            ent = max(temp.values())
-            for key in temp.keys():
-                if temp[key] == ent:
-                    print("{}:".format(key))
-                    print("---has a salience score of: {}".format(ent))
-                    del temp[key]
-                    break
-        else:
-            break
+        encoding_type = enums.EncodingType.UTF8
+
+        response = client.analyze_entities(document, encoding_type=encoding_type)
+        for entity in response.entities:
+            print("")
+            print(u"Representative name for the entity: {}".format(entity.name))
+            print(u"Entity type: {}".format(enums.Entity.Type(entity.type).name))
+            if enums.Entity.Type(entity.type).name == "DATE":
+                with open("notes.txt", "a") as file:
+                    file.write("{}\n".format(entity.name))
+            print(u"Salience score: {}".format(entity.salience))
+            for metadata_name, metadata_value in entity.metadata.items():
+                print(u"{}: {}".format(metadata_name, metadata_value))
+
+            for mention in entity.mentions:
+                print(u"Mention text: {}".format(mention.text.content))
+                print(
+                    u"Mention type: {}".format(enums.EntityMention.Type(mention.type).name)
+                )
+
+        print(u"Language of the text: {}".format(response.language))
+
+        temp = {}
+        for entity in response.entities:
+            temp[entity.mentions[0].text.content] = entity.salience
+        print()
+        print("Analysis begins below.....")
+        while True:
+            if len(temp) > 0:
+                ent = max(temp.values())
+                for key in temp.keys():
+                    if temp[key] == ent:
+                        print("{}:".format(key))
+                        print("---has a salience score of: {}".format(ent))
+                        if ent > 0:
+                            with open("notes.txt", "a") as file:
+                                file.write("{}\n".format(key))
+                        del temp[key]
+                        break
+            else:
+                break
 
 
 sample_analyze_entities(u"{}".format(input("Enter entities text: ")))
