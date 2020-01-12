@@ -140,7 +140,7 @@ def submit():
             if input_password == get_password:
                 print('Signed in')
                 user_logged_in = True
-                return redirect('index2.html')
+                return render_template('index2.html')
             else:
                 print('wrong password')
                 return render_template('login.html')
@@ -170,7 +170,7 @@ def submit():
                 }
                 db.collection(u'users').document(user.uid).set(data)
                 user_logged_in = True
-                return redirect('/')
+                return render_template('index2.html')
         except Exception:
             print("General error")
             return render_template('login.html')
@@ -182,7 +182,7 @@ def submit():
 
             if input_password == get_password:
                 user_logged_in = True
-                return redirect('index2.html')
+                return render_template('index2.html')
             else:
                 print('wrong password')
                 return render_template('login.html')
