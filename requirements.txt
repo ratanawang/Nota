@@ -1,3 +1,4 @@
+spacy
 beautifulsoup4==4.8.2
 CacheControl==0.12.6
 cachetools==4.0.0
