@@ -55,5 +55,21 @@ def sample_analyze_entities(text_content):
     # the automatically-detected language.
     print(u"Language of the text: {}".format(response.language))
 
+    temp = {}
+    for entity in response.entities:
+        temp[entity.mentions[0].text.content] = entity.salience
+    print("Analysis begins below.....")
+    while True:
+        if len(temp) > 0:
+            ent = max(temp.values())
+            for key in temp.keys():
+                if temp[key] == ent:
+                    print("{}:".format(key))
+                    print("---has a salience score of: {}".format(ent))
+                    del temp[key]
+                    break
+        else:
+            break
+
 
 sample_analyze_entities(u"{}".format(input("Enter entities text: ")))
