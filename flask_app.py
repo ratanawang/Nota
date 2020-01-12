@@ -190,11 +190,11 @@ def submit():
         print('ERROR')
 
 
-@app.route('/index2', methods=['POST', 'GET'])
-def submit():
-    input_text = request.form['text']
-    output_text = sample_analyze_entities(input_text)
-    return render_template('index2.html', output_text=output_text)
+# @app.route('/index2', methods=['POST', 'GET'])
+# def submit():
+#     input_text = request.form['text']
+#     output_text = sample_analyze_entities(input_text)
+#     return render_template('index2.html', output_text=output_text)
 
 
 
