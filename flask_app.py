@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, request, render_template, send_from_directory, flash
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -81,6 +81,11 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template('index.html')
+
+
+@app.route("/login")
+def login():
+    return render_template('login.html')
 
 
 @app.route('/css/<path>')
