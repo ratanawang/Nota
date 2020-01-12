@@ -32,7 +32,7 @@ sample_data = ""
 input_email = input("(sign in) enter email: ")
 input_password = input("(sign in) enter password: ")
 
-#user = auth.get_user_by_email(input_email)
+# user = auth.get_user_by_email(input_email)
 
 # print(user.passwordHash())
 # if user.passwordHash == input_password:
