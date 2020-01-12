@@ -20,24 +20,49 @@ auth = firebase_admin.auth
 #     u'born': 2003
 # })
 
-# Test creating user
-# email = input("(create acc) enter email: ")
-# password = input("(create acc) enter password: ")
-# sample_data = input("enter some sample data: ")
-#
-# user = auth.create_user(email=email, password=password, disabled=False)
-# email = ""
-# password = ""
-# sample_data = ""
-#
-# input_email = input("(sign in) enter email: ")
-# input_password = input("(sign in) enter password: ")
+# Test user authentication stuff
+# input register
+email = input("(create acc) enter email: ")
+password = input("(create acc) enter password: ")
+sample_data = input("enter some sample data: ")
 
-# user = auth.get_user_by_email(input_email)
+# create user and add data to Firestore
+try:
+    user = auth.create_user(email=email, password=password, disabled=False)
+except Exception:
+    print(u'Account already exists')
+print(user.uid)
+data = {
+    u'uid': user.uid,
+    u'password': password,
+    u'note count': 0
+}
+db.collection(u'users').document(user.uid).set(data)
 
-# print(user.passwordHash())
-# if user.passwordHash == input_password:
-#     print("got the user")
+data = {
+    u'sample_data': sample_data
+}
+db.collection(u'users').document(user.uid).collection(u'sample_data').document(u'set').set(data)
+
+# clear variables
+email = ""
+password = ""
+sample_data = ""
+
+# input sign in
+input_email = input("(sign in) enter email: ")
+input_password = input("(sign in) enter password: ")
+
+# check user, password and print sample text
+user = auth.get_user_by_email(input_email)
+
+print(user.uid)
+doc_ref = db.collection(u'users').document(user.uid)
+try:
+    doc = doc_ref.get()
+    print(u'Document data: {}'.format(doc.to_dict()))
+except Exception:
+    print(u'No such document!')
 
 app = Flask(__name__)
 
