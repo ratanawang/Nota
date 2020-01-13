@@ -127,3 +127,6 @@ dmypy.json
 .idea/workspace.xml
 .idea/misc.xml
 .idea/Nota.iml
+
+# Other ignore
+notes.txt
