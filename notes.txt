@@ -1,7 +1,2 @@
 ---------------
-- January 12th, 1930
-- tim horton
-- birthday
----------------
-- tim horton's
-- donut shop
+- January 12th, 2020
