@@ -197,7 +197,5 @@ def submit():
 #     return render_template('index2.html', output_text=output_text)
 
 
-
-
 if __name__ == "main":
     app.run(debug=True)
