@@ -68,4 +68,4 @@ def sample_analyze_entities(text_content):
                 break
 
 
-sample_analyze_entities(u"{}".format(input("Enter entities text: ")))
+# sample_analyze_entities(u"{}".format(input("Enter entities text: ")))

@@ -42,7 +42,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#ourteam">Our Team</a>
                     </ul>
-                    <li class="nav-item"><a href="/login" class="tickets_btn">Logout</a></li>
+                    <li class="nav-item"><a href="/login" class="tickets_btn">Logout</a></li><!--todo: make logout button change user logged in variable in flask-->
                     <ul class="nav navbar-nav navbar-right">
                     </ul>
                 </div>
@@ -56,34 +56,34 @@
 <section class="home_banner_area">
     <div class="banner_inner">
         <div class="container">
-
-
             <div class="banner_content">
                 <br><br><br><br><br><br><br>
-                <div class="row">
-                    <div class="col-sm">
-                        <form>
-                            <textarea id="text_input" name="text_input" placeholder="Enter your notes..."
-                                      rows="4"></textarea>
-                        </form>
-                    </div>
-                    <div id="cen" class="col-sm">
-                        <input type="submit" id="buttonGen" class="btn btn-danger" type="submit" value="Generate">
-                        <br>
-                        <br>
-                        <input type="submit" value="Generate" id="buttonGen2" class="btn btn-secondary dropdown-toggle"
-                               id="dropdtownMenuButton" data-toggle="dropdown">
-                        </input>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Suggested Option</a><br>
-                            <a class="dropdown-item" href="#">Alternative Option I</a><br>
-                            <a class="dropdown-item" href="#">Alternative Option II</a><br>
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col-sm">
+                            <textarea id="text_input" placeholder="Enter your notes..." name="text_input"
+                                      rows="4">{{input_text}}</textarea>
+                        </div>
+                        <div id="cen" class="col-sm">
+                            <input type="submit" id="buttonGen" class="btn btn-danger" type="submit" value="Generate">
+                            <br>
+                            <br>
+                            <button type="submit" id="buttonGen2" class="btn btn-secondary dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown">
+                                Generate Options
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Suggested Option</a><br>
+                                <a class="dropdown-item" href="#">Alternative Option I</a><br>
+                                <a class="dropdown-item" href="#">Alternative Option II</a><br>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <textarea id="text_output" name="text_output" placeholder="Bam. Notes" rows="4">{{output_text}}</textarea>
                         </div>
                     </div>
-                    <div class="col-sm">
-                        <textarea id="text_output" name="text_output" placeholder="Bam. Notes" rows="4"></textarea>
-                    </div>
-                </div>
+                </form>
                 <br><br><br><br><br><br><br>
             </div>
 
