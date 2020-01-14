@@ -127,6 +127,8 @@ dmypy.json
 .idea/workspace.xml
 .idea/misc.xml
 .idea/Nota.iml
+.idea/webResources.xml
+.idea/codeStyles/codeStyleConfig.xml
 
 # Other ignore
 notes.txt
