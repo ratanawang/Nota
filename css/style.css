@@ -484,6 +484,14 @@ textarea {
           .banner_area .banner_inner .banner_content .page_link a:last-child:before {
             display: none; }
 
+textarea {
+  /*color: aqua;*/
+  /*border: 5px solid #000000;*/
+  /*border-radius: 20px;*/
+  /*-webkit-border-radius: 20px;*/
+  /*-moz-border-radius: 20px;*/
+}
+
 /* End Home Banner Area css
 ============================================================================================ */
 /*---------------------------------------------------- */
@@ -1971,7 +1979,12 @@ h6 {
   display: block;
   width: 100%;
   line-height: 40px;
-  border: none;
+
+  border: 5px solid #000000;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+
   outline: none;
   background: #f9f9ff;
   padding: 0 20px;
