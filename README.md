@@ -1,8 +1,9 @@
 ![Nota Logo](/img/logohd.png)
 <br/>
+
 # Nota
 
-Nota is an intelligent note-taking web app that allows its users to focus on learning. On the backend, it uses Python Flask to build the web app, and HTML/CSS/JavaScript were used for styling the web pages. It employs Google Cloud’s Natural Language API to detect which words are worth noting, Firebase to utilize user authentication, and Firestore to store the users’ data. 
-<br/>
-<br/>
+Nota is an intelligent note-taking web app that allows its users to focus on learning. Currently, the web app takes copy-pasted text as input and outputs a list of the most important words or phrases. In the future, we plan to add support for image/audio input, account-based cloud saving and a more sophisticated note processing algorithm. Nota uses Python, Flask, various GCloud Services (Natural Language API, App Engine, etc.), Firebase Authentication, and Cloud Firestore.
+<br/><br/>
+
 (Created at nwHacks 2020.)
